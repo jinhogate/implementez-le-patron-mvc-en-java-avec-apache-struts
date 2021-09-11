@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="default" extends="struts-default">
+        <!-- Action par défaut -->
+        <default-action-ref name="index"/>
+
+        <!-- Action "index" -->
+        <action name="index">
+            <result>/jsp/index.jsp</result>
+        </action>
+
+        <!-- Action list des projets -->
+        <action name="projet_list"
+                class="org.example.demo.ticket.webapp.action.GestionProjectAction"
+                method="doList">
+            <result>/jsp/projet/list.jsp</result>
+        </action>
+
+        <!-- Action détail des projets -->
+        <action name="projet_detail"
+                class="org.example.demo.ticket.webapp.action.GestionProjectAction"
+                method="doDetail">
+            <result name="success">/jsp/projet/detail.jsp</result>
+            <result name="error">/jsp/error.jsp</result>
+        </action>
+
+        <!-- Action détail des utilisateurs -->
+        <action name="utilisateur_detail"
+                class="org.example.demo.ticket.webapp.action.GestionUtilisateurAction"
+                method="doDetail">
+            <result name="success">/jsp/utilisateur/detail.jsp</result>
+            <result name="error">/jsp/error.jsp</result>
+        </action>
+
+    </package>
+</struts>
